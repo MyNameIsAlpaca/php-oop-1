@@ -2,11 +2,11 @@
 
 require_once './Model/Movie.php';
 
-$forrest_gump = new Movie("Forrest Gump", "Robert Zemeckis", 1994, "Drammatico");
+$forrest_gump = new Movie("Forrest Gump", "Robert Zemeckis", 1994, ["Drammatico", "Commedia"]);
 
-$fight_club = new Movie("Fight Club", "David Fincher", 1999, "Drammatico");
+$fight_club = new Movie("Fight Club", "David Fincher", 1999, ["Drammatico", "Psicologico"]);
 
-$donnie_darko = new Movie("Donnie Darko", "Richard Kelly", 2004, "Thriller psicologico");
+$donnie_darko = new Movie("Donnie Darko", "Richard Kelly", 2004, ["Drammatico", "Psicologico", "Thriller Psicologico"]);
 
 
 $movies[] = $forrest_gump;
@@ -51,7 +51,9 @@ $movies[] = $donnie_darko;
 
         <td><?php echo $movie->year ?></td>
 
-        <td><?php echo $movie->genre ?></td>
+        <td><?php foreach($movie->genre as $genere) {
+          ?> <span><?php echo '- '.$genere ?></span>
+          <?php } ?></td>
 
         <td><?php echo $movie->before_2000 ?></td>
 

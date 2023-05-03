@@ -7,7 +7,7 @@ class Movie {
   public $genre;
   public $before_2000;
 
-  function __construct(string $name, string $director, int $year, string $genre,){
+  function __construct(string $name, string $director, int $year, array $genre){
     $this->name = $name;
     $this->director = $director;
     $this->year = $year;
