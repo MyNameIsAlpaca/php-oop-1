@@ -2,18 +2,7 @@
 
 require_once './Model/Movie.php';
 
-$forrest_gump = new Movie("Forrest Gump", "Robert Zemeckis", 1994, ["Drammatico", "Commedia"]);
-
-$fight_club = new Movie("Fight Club", "David Fincher", 1999, ["Drammatico", "Psicologico"]);
-
-$donnie_darko = new Movie("Donnie Darko", "Richard Kelly", 2004, ["Drammatico", "Psicologico", "Thriller Psicologico"]);
-
-
-$movies[] = $forrest_gump;
-
-$movies[] = $fight_club;
-
-$movies[] = $donnie_darko;
+require_once './db.php'
 
 ?>
 <!DOCTYPE html>
@@ -23,12 +12,14 @@ $movies[] = $donnie_darko;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 
   <h1>Film</h1>
 
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Nome</th>
@@ -52,7 +43,7 @@ $movies[] = $donnie_darko;
         <td><?php echo $movie->year ?></td>
 
         <td><?php foreach($movie->genre as $genere) {
-          ?> <span><?php echo '- '.$genere ?></span>
+          ?> <span class="genere"><?php echo $genere ?></span>
           <?php } ?></td>
 
         <td><?php echo $movie->before_2000 ?></td>
